@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Macondo');
+
+/* Using the element's name as my selector */
+
+body{
+    background-color: #8E949A;
+}
+
+/* Using ids as my selector */
+
+#first{
+    background-color: #0366D6;
+}
+
+#second{
+    background-color: #d67373;
+    color:white;
+    background-image: url(../img/codeup-square.png);
+
+
+    width: 500px;
+    height: 500px;
+}
+
+#third{
+    background-color: #18d64f;
+}
+
+/* Using classes as my selector */
+
+.boxes{
+    width: 150px;
+    height: 150px;
+    color:white;
+    text-align: right;
+    font-family: "Arial Black";
+    font-style: italic;
+    font-size: 12px;
+    margin: 50px;
+
+    margin-top: 50px;
+}
+
+.borders{
+    border-top: 10px dashed blue;
+}
+
+#name{
+    text-align: left;
+    text-indent: 10px;
+}
+
+.names{
+    list-style: none;
+}
+

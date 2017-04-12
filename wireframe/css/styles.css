@@ -1,0 +1,110 @@
+/* Reset */
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav > ul {
+    list-style-type: none;
+}
+
+/* Layout */
+
+header > h1 {
+    float: left;
+}
+
+header > nav {
+    float: right;
+}
+
+.nav-item {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.hero {
+    clear: both;
+}
+
+#main {
+    float: left;
+    width: 60%;
+}
+
+#aside {
+    float: left;
+    width: 35%;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+#footer {
+    float: left;
+    width: 100%;
+    clear: left;
+}
+
+.footer-nav {
+    float: right;
+}
+
+.container {
+    margin: 20px;
+}
+
+/*mobile*/
+
+@media screen and (max-width : 500px) {
+
+    header > h1 {
+        float: none;
+        text-align: center;
+    }
+
+
+    .nav-item {
+        display: block;
+    }
+
+    header > nav {
+        float: none;
+        background-color: gray;
+    }
+
+    nav ul {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    #main {
+        float: none;
+        width: 100%;
+    }
+
+    #aside {
+        float: none;
+        width: 100%;
+    }
+
+    .footer-nav li {
+        display: inline-block;
+    }
+
+
+}
+}
+

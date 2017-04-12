@@ -1,0 +1,51 @@
+div {
+
+    /*
+    border-width: 1px;
+    border-color: #8E949A;
+    border-style: solid;
+    */
+
+    /* shorthand */
+    border: 1px solid #8E949A; /* These rules are equivalent */
+    width: 150px;
+    height: 50px;
+
+    /*padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;*/
+
+    /*padding: 10px 10px; !* first value is top-bottom, second one is left-right *!*/
+
+    padding: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+#red {
+    background-color: #D84231;
+}
+#orange {
+    background-color: #EAAE33;
+    margin-left: 30px;
+}
+#yellow {
+    background-color: #FCF733;
+    margin-left: 60px;
+}
+#green {
+    background-color: #578C05;
+    margin-left: 90px;
+}
+#blue {
+    background-color: #234AFB;
+    margin-left: 120px;
+}
+#purple {
+    background-color: #DF8BF0;
+    margin-left: 150px;
+}
+
+

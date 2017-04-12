@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Form</title>
+</head>
+<body>
+
+<!--The method in the form for POST requests is required-->
+
+<form action="https://requestb.in/15usmb01" method="POST" >
+
+    <label for="fname">Name</label>
+    <!--Without the name attribute this fields will not work-->
+    <input id="fname" type="text" name="first_name" placeholder="Type your name in here">
+    <br>
+    <!--The for attribute should match the id of one input-->
+    <label for="age">Age</label>
+    <input id="age" type="text" name="my_age">
+    <br>
+
+    <label for="pass">Password</label>
+    <input type="password" name="my_password" id="pass">
+    <br>
+
+    <p>What's your fav. color?</p>
+
+    <label for="blue">Blue</label>
+    <input id="blue" type="checkbox" name="color[]" value="blue">
+
+    <label for="red">Red</label>
+    <input id="red" type="checkbox" name="color[]" value="red">
+
+    <label for="yellow">Yellow</label>
+    <input id="yellow" type="checkbox" name="color[]" value="yellow">
+
+    <p>What day is it?</p>
+
+    <input id="monday" type="radio" name="day" value="1">
+    <label for="monday">Monday</label>
+
+    <input id="tuesday" type="radio" name="day" value="2">
+    <label for="tuesday">Tuesday</label>
+
+    <input id="wednesday" type="radio" name="day" value="3">
+    <label for="wednesday">Wednesday</label>
+
+    <br>
+    <br>
+    <label for="address">Address</label>
+    <br>
+    <textarea name="address" id="address" cols="10" rows="10"></textarea>
+
+    <br>
+
+    <label for="consoles">Consoles</label>
+    <select name="console" id="consoles">
+        <option value="ps4">PS4</option>
+        <option value="xbox1">XBOX ONE</option>
+        <option value="switch">Nintendo Switch</option>
+    </select>
+
+
+    <br><br>
+    <!--<input type="submit" value="Send">-->
+    <button>Send</button>
+
+    <input type="hidden" name="ssn" value="">
+
+</form>
+
+</body>
+</html>

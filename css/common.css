@@ -1,0 +1,91 @@
+/* Selectors  */
+/* element selector */
+header {
+    /* CSS rule */
+    /* property: value */
+    /* key-value pair */
+    background-color: black
+}
+
+
+.top-navigation {
+    font-weight: bold;
+}
+/* Code smell.- Kent Beck */
+/* Descendant */
+/*
+nav.top-navigation a {
+    color: #8E949A;
+    text-decoration: none;
+}
+*/
+
+/* LoVe HAte */
+
+a:link {
+    color: palevioletred;
+}
+a:visited {
+    text-decoration: line-through;
+    color: red;
+}
+a:hover {
+    font-size: 30px;
+}
+a:active {
+    background-color: greenyellow;
+}
+
+
+
+#current {
+    background-color: #0366D6;
+}
+
+/*#current > a {
+    color: #FFF;
+}*/
+
+p > strong {
+    color: burlywood;
+}
+
+.pill-nav {
+    border-style: solid;
+    border-color: #8E949A;
+    border-width: 1px;
+}
+
+/*
+Which selector is more important?
+
+1. IDs
+2. Classes
+3. Elements
+
+*/
+
+
+
+/* specificity */
+
+a { /*Rules delimiters */
+    color: #FFE641;
+}
+
+ul {
+    list-style: none;
+}
+
+/*
+RGB - Red-Green-Blue
+0 - 255
+0 - FF
+
+00 00 00 - black
+FF FF FF - white
+
+level level  level
+34 - 65 - AF
+## - ## - ##
+*/

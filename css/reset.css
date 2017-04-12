@@ -1,0 +1,76 @@
+/* webpack */
+
+/* Reset styles */
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+    line-height: 1.2em;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+nav > ul {
+    list-style-type: none;
+}
+
+nav, h1 {
+    margin-bottom: 1em;
+}
+
+img, embed, object, video {
+    max-width: 100%;
+}
+
+nav a, button {
+    min-height: 48px;
+    min-width: 48px;
+}
+
+
+/* Layout styles */
+
+/*Canvas off*/
+
+.container {
+    /*width: 960px; !* Fixed width *!*/
+    width: 90%;
+    margin: 0 auto;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+main {
+    /*width: 760px;  !* Fixed width *!*/
+    width: 80%;
+    float: left;
+}
+
+aside {
+    width: auto;
+    float: left;
+}
+
+footer {
+    clear: both;
+    padding-top: 2em;
+}
+
+@media (min-width: 480px) {
+    body {
+        background-color: cadetblue;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        color: brown;
+    }
+}

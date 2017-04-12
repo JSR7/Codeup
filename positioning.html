@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Floats Example</title>
+    <style>
+        #fancy:last-child {  /* all the elements with ID fancy, that are also the last child*/
+
+        }
+
+        #fancy :last-child { /* all the elements with ID fancy, find the last child */
+
+        }
+
+        #container {
+            margin: 50px auto; /* how we center **block** elements */
+            width: 500px; /* this is REQUIRED */
+            border: 1px solid #000;
+        }
+
+        .box1 {
+            background-color: #77AF00; /* greenish */
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+            float: left;
+        }
+
+        #box2 {
+            background-color: #1969B2; /* blueish */
+            height: 150px;
+            width: 150px;
+            /*margin: 10px;*/
+            /*float: right;*/
+            position: fixed;
+            top: 100px;
+            right: 100px;
+        }
+
+        /* clear fix */
+        p {
+            background-color: #18d64f;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="box1">1</div>
+    <div class="box1">2</div>
+    <div class="box1">3</div>
+    <div class="box1">4</div>
+    <div class="box1">5</div>
+    <div class="box1">6</div>
+    <div class="box1">7</div>
+    <div class="box1">8</div>
+    <div class="box1">9</div>
+    <div class="box1">10</div>
+    <div id="box2"></div>
+    <p></p>
+</div>
+</body>
+</html>

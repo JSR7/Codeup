@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    "use strict";
+
+
+    var luckyNumber = Math.floor(Math.random()* 6)
+
+    var discount0 = 1.00;
+    var discount1 = .10;
+    var discount2 = .25;
+    var discount3 = .35;
+    var discount4 = .50;
+    var discount5 = 0.0;
+
+    var receipt = 60
+
+    switch (luckyNumber) {
+        case 0:
+            console.log("You pay $" + receipt * discount0);
+            break;
+        case 1:
+            console.log("You pay $" + receipt * discount1);
+        case 2:
+            console.log("You pay $" + receipt * discount2);
+            break;
+        case 3:
+            console.log("You pay $" + receipt * discount3);
+            break;
+        case 4:
+            console.log("You pay $" + receipt * discount4);
+            break;
+        case 5:
+            console.log("You pay $" + receipt * discount5);
+            break;
+    }
+
+
+    var selectedmonth = Math.floor(Math.random()* 12);
+
+    var month1 = "January";
+    var month2 = "February";
+    var month3 = "March";
+    var month4 = "April";
+    var month5 = "May";
+    var month6 = "June";
+    var month7 = "July";
+    var month8 = "August";
+    var month9 = "September";
+    var month10 = "October";
+    var month11 = "November";
+    var month12 = "December";
+
+
+    switch (selectedmonth) {
+        case 1:
+            console.log("Selected month is " + month1);
+            break;
+        case 2:
+            console.log("Selected month is " + month2);
+            break;
+        case 3:
+            console.log("Selected month is " + month3);
+            break;
+        case 4:
+            console.log("Selected month is " + month4);
+            break;
+        case 5:
+            console.log("Selected month is " + month5);
+            break;
+        case 6:
+            console.log("Selected month is " + month6);
+            break;
+        case 7:
+            console.log("Selected month is " + month7);
+            break;
+        case 8:
+            console.log("Selected month is " + month8);
+            break;
+        case 9:
+            console.log("Selected month is " + month9);
+            break;
+        case 10:
+            console.log("Selected month is " + month10);
+            break;
+        case 11:
+            console.log("Selected month is " + month11);
+            break;
+        case 12:
+            console.log("Selected month is " + month12);
+            break;
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
