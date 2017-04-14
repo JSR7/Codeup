@@ -5,7 +5,7 @@
     var circle = {
         radius: 3,
 
-        getArea: function () {
+        getArea: function() {
             var area = Math.PI * Math.pow(circle.radius, 2);
             return area;
         },
