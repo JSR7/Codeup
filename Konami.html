@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Konami Code</title>
+
+    <style>
+
+        #MGS {
+            width: 90%;
+            height: auto;
+            display: none;
+            margin-left: 5%
+        }
+
+        #song1 {
+            display: none;
+        }
+
+        #song2 {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<img id="MGS" src="img/MGS.png">
+
+
+<audio ><source id="song1" src="audio/alert.mp3" type="audio/mpeg"></audio>
+<audio ><source id="song2" src="audio/mgs1theme.mp3" type="audio/mpeg"></audio>
+
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+        crossorigin="anonymous"></script>
+<script>
+    var konamicode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    var i = 0;
+    var slideshow = ["img/MGS2.jpg", "img/MGS3.jpg", "img/MGS4.jpg", "img/MGS5.jpg", "img/MGS6.jpg", "img/MGS7.jpg", "img/MGS8.jpg"];
+    var j = 0;
+    var s = 0;
+
+
+    $(document).keydown(function (e) {
+        if (e.keyCode === konamicode[i]) {
+            console.log(e.keyCode);
+            i++;
+            if (e.keyCode === konamicode[9]) {
+                $('#song1').play;
+                $('#MGS').show();
+                setInterval(function () {
+                    $("#MGS").attr("src", slideshow[j]);
+                    j++;
+                    if (j == slideshow.length) {
+                        j = 0;
+                    }
+                }, 5000);}
+                }
+            else
+            {i = 0;}
+        });
+
+
+//    for (var i = 1; i <= 3; i++) {
+//        document.querySelector("#song" + i)[0].play();
+//    }
+
+
+</script>
+
+</body>
+</html>
