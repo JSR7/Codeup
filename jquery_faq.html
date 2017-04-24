@@ -15,6 +15,35 @@
 </head>
 <body>
 
+<h3>Yellowstone</h3>
+<ul>
+    <li>Fact1</li>
+    <li>Fact2</li>
+    <li>Fact3</li>
+    <li>Fact4</li>
+
+</ul>
+
+<h3>Yosemite</h3>
+<ul>
+    <li>Fact1</li>
+    <li>Fact2</li>
+    <li>Fact3</li>
+    <li>Fact4</li>
+
+</ul>
+
+<h3>Zion</h3>
+<ul>
+    <li>Fact1</li>
+    <li>Fact2</li>
+    <li>Fact3</li>
+    <li>Fact4</li>
+</ul>
+
+
+<button id="button" type="button">Press this to highlight </button>
+
 
 <dl>
     <dt>Who is the director of the National Park Service?</dt>
@@ -62,6 +91,13 @@
 
 <a href="#" id="invisibleFAQ">Click here to toggle National Parks FAQs</a>
 
+
+
+
+
+
+
+
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
         integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -79,7 +115,12 @@ $('#invisibleFAQ').click(function(event){
     $('dd').toggleClass('invisible');
 });
 
+$("#button").click(function (){
+    $("ul").children().last().css("background-color", "yellow");
+});
 
+
+//$("br").erase();
 
 </script>
 
