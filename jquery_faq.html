@@ -116,9 +116,18 @@ $('#invisibleFAQ').click(function(event){
 });
 
 $("#button").click(function (){
-    $("ul").children().last().css("background-color", "yellow");
+    $("li:nth-child(4)").css("background-color", "yellow");
 });
 
+$("h3").click(function(){
+    $("ul").children().css("font-weight","bold")
+});
+
+$("li").click(function(event){
+    $("ul").each(function(index, el){
+        $(el).children().first('li').css("color", "blue");
+    })
+});
 
 //$("br").erase();
 
