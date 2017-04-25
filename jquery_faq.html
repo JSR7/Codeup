@@ -61,10 +61,11 @@
 
 
 <div id="signup">
-    <h1>Would you like to sign up for our newsletter?</h1>
-    <span id="X">X</span>
+    <h1>Would you like to sign up for our newsletter? <span id="X">X</span</h1>
+
 </div>
 
+<h2 id="register">Please register with our site.</h2>
 
 <h3>Yellowstone</h3>
 <ul>
@@ -94,8 +95,9 @@
 
 
 <button id="button" type="button">Press this to highlight </button>
+<br>
 
-
+<a href="#" id="invisibleFAQ">Click here to toggle National Parks FAQs</a>
 <dl>
     <dt>Who is the director of the National Park Service?</dt>
         <dd>Michael T. Reynolds</dd>
@@ -140,7 +142,7 @@
     <br>
 </dl>
 
-<a href="#" id="invisibleFAQ">Click here to toggle National Parks FAQs</a>
+
 
 
 
@@ -162,7 +164,7 @@
 
 $('dd').addClass('invisible');
 
-//$('.invisible').css("display", "none");
+
 
 $('#invisibleFAQ').click(function(event){
 //    event.preventDefault();
@@ -173,9 +175,9 @@ $("#button").click(function (){
     $("li:nth-child(4)").css("background-color", "yellow");
 });
 
-//$("h3").click(function(){
-//    $("ul").children().css("font-weight","bold")
-//});
+$("h3").click(function(){
+    $("ul").children().css("font-weight","bold")
+});
 
 $("li").click(function(event){
     $("ul").each(function(index, el){
@@ -193,11 +195,15 @@ $("#X").click(function(){
 });
 
 $('h3').click(function(){
-    $('ul').toggle("display", "none")
+    $(this).next().fadeToggle();
 });
 
 
-//$("br").erase();
+$('#register').hide();
+$('#register').delay(8000).fadeIn(1000);
+
+
+//$("br").delete();
 
 </script>
 

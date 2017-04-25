@@ -29,8 +29,8 @@
 <img id="MGS" src="img/MGS.png">
 
 
-<audio ><source id="song1" src="audio/alert.mp3" type="audio/mpeg"></audio>
-<audio ><source id="song2" src="audio/mgs1theme.mp3" type="audio/mpeg"></audio>
+<audio><source id="song1" src="audio/alert.mp3" type="audio/mpeg"></audio>
+<audio><source id="song2" src="audio/mgs1theme.mp3" type="audio/mpeg"></audio>
 
 
 <script
@@ -50,7 +50,7 @@
             console.log(e.keyCode);
             i++;
             if (e.keyCode === konamicode[9]) {
-                $('#song1').play;
+
                 $('#MGS').show();
                 setInterval(function () {
                     $("#MGS").attr("src", slideshow[j]);
