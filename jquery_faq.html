@@ -10,10 +10,61 @@
             display: none;
         }
 
+        #a {
+            height:20vw;
+            width:25%;
+            border: 5px solid red;
+            display: inline-block;
+            margin:3vw;
+            background-image: url("img/MGS7.jpg");
+            background-size: cover;
+
+        }
+        #b {
+            height:20vw;
+            width:25%;
+            border: 5px solid blue;
+            display: inline-block;
+            margin:3vw;
+            background-image: url("img/bioshock.jpg");
+            background-size: cover;
+        }
+        #c {
+            height:20vw;
+            width:25%;
+            border:5px solid green;
+            display: inline-block;
+            margin:3vw;
+            background-image: url("img/ds2.jpg");
+            background-size: cover;
+        }
+        #signup {
+            border:5px solid blue ;
+            width:25%;
+        }
+        ul{
+            display:none;
+        }
+
+
 
     </style>
 </head>
 <body>
+
+
+<div id="a"></div>
+
+<div id="b"></div>
+<div id="c"></div>
+
+
+
+<div id="signup">
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span id="X">X</span>
+</div>
+
 
 <h3>Yellowstone</h3>
 <ul>
@@ -98,6 +149,9 @@
 
 
 
+
+
+
 <script
         src="https://code.jquery.com/jquery-2.2.4.js"
         integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
@@ -119,15 +173,29 @@ $("#button").click(function (){
     $("li:nth-child(4)").css("background-color", "yellow");
 });
 
-$("h3").click(function(){
-    $("ul").children().css("font-weight","bold")
-});
+//$("h3").click(function(){
+//    $("ul").children().css("font-weight","bold")
+//});
 
 $("li").click(function(event){
     $("ul").each(function(index, el){
         $(el).children().first('li').css("color", "blue");
     })
 });
+
+
+//var deadspace = url("img/ds2.jpg");
+//var mgs = url("img/MGS7.jpg");
+//var bioshock = url("img/bioshock.jpg");
+
+$("#X").click(function(){
+    $('#signup').hide()
+});
+
+$('h3').click(function(){
+    $('ul').toggle("display", "none")
+});
+
 
 //$("br").erase();
 
