@@ -17,15 +17,18 @@
 
         }
 
-        #weatherinfo {
+        .weatherinfo {
             height: 310px;
-            width: 100%;
+            /*width: 32%;*/
             background-color: white;
+            border: 2px solid black;
+            /*display: inline-block;*/
+            /*margin-left: .5%;*/
         }
 
         #weatherdiv {
             width: 80%;
-            height: 400px;
+            height: 420px;
             margin: 10%;
             background-color: #8E949A;
         }
@@ -36,13 +39,17 @@
 </head>
 <body>
 <div id="weatherdiv">
-    <div>
-        <h1>Weather Application</h1>
-        <h3 id="location">San Antonio, TX</h3>
-        <div id="weatherinfo">
-        </div>
+    <!--<div>-->
+        <!--<h1>Weather Application</h1>-->
+        <!--<h3 id="location">San Antonio, TX</h3>-->
+        <!--<div class="weatherinfo">-->
+        <!--</div>-->
+        <!--<div class="weatherinfo">-->
+        <!--</div>-->
+        <!--<div class="weatherinfo">-->
+        <!--</div>-->
 
-    </div>
+    <!--</div>-->
     </divid>
 
     <!-- jQuery comes first and bootstrap JS after-->
@@ -57,6 +64,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLObKqGLo5t1ZvfoIFvsC5S3Ex_FN0oWs"></script>
     <!--External JS file-->
     <!--<script src="js/myFunctions.js"></script>-->
 
@@ -64,22 +72,65 @@
     <script>
         (function () {
 
-            function weather () {
-                $.get("http://api.openweathermap.org/data/2.5/weather", {
+
+            function getWeather() {
+                $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
                     APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
                     q: "San Antonio, TX",
-                    count: 3,
-                    units: "imperial",
-                    icon: "http://openweathermap.org/img/w/[icon].png"
-                }).done(function () {
-                    console.log("Success!");
-                }).fail (function (){
-                    console.log("Failed!")
+                    id: "4726206",
+                    cnt: 3,
+                    units: "imperial"
+                }).done(function (data) {
+                    console.log(data);
+                    createHtml(data);
+                }).fail(function () {
+                    console.log("Failed!");
                 });
             }
 
 
-            $("#weatherinfo").html(weather);
+            getWeather();
+
+
+            function createHtml(data){
+                var content = '<h2>' + data.city.name + '</h2>'
+                for (var i = 0; i < data.list.length; i++) {
+                    content += '<div class="col-xs-4 weatherinfo text-center">';
+                    content += '<p>Temperature:' + data.list[i].temp.min + "/" + data.list[i].temp.max + "</p>";
+                    content += '<p><img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png"></p>';
+                    content += '<p>Humidity: ' + data.list[i].humidity + "</p>";
+                    content += '<p>Pressure: '+ data.list[i].pressure + "</p></div>";
+                }
+                    $('#weatherdiv').html(content);
+
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            var iconCode = data.list[i].weather[0].icon;
+//            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+//            content = '';
+//            location = '';
+//            location += data.city.name;
+//            content += "<strong>" +data.list[i].temp.max + "/" + data.list[i].temp.min + "</strong><br><br>";
+//            content += "<span class='icon'></span><br><br>";
+//            content += "<strong>Humidity:</strong> " + data.list[i].humidity + "<br><br>";
+//            content += "<strong>Wind:</strong> " + data.list[i].speed + "<br><br>";
+//            content += "<strong>Pressure:</strong> " + data.list[i].pressure;
+//            $("#info-" + i).html(content);
+//            $(".icon").html("<img src='" + iconUrl + "'>");
+
 
         })();
     </script>
