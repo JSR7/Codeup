@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style>
+        body {
+            background-color: #18d64f;
+        }
+
+        #location {
+
+        }
+
+        #weatherinfo {
+            height: 310px;
+            width: 100%;
+            background-color: white;
+        }
+
+        #weatherdiv {
+            width: 80%;
+            height: 400px;
+            margin: 10%;
+            background-color: #8E949A;
+        }
+
+    </style>
+    <!--<link rel="stylesheet" href="css/styles.css">-->
+
+</head>
+<body>
+<div id="weatherdiv">
+    <div>
+        <h1>Weather Application</h1>
+        <h3 id="location">San Antonio, TX</h3>
+        <div id="weatherinfo">
+        </div>
+
+    </div>
+    </divid>
+
+    <!-- jQuery comes first and bootstrap JS after-->
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--External JS file-->
+    <!--<script src="js/myFunctions.js"></script>-->
+
+    <!-- Remember we do not encourage you to write in line JS -->
+    <script>
+        (function () {
+
+            function weather () {
+                $.get("http://api.openweathermap.org/data/2.5/weather", {
+                    APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
+                    q: "San Antonio, TX",
+                    count: 3,
+                    units: "imperial",
+                    icon: "http://openweathermap.org/img/w/[icon].png"
+                }).done(function () {
+                    console.log("Success!");
+                }).fail (function (){
+                    console.log("Failed!")
+                });
+            }
+
+
+            $("#weatherinfo").html(weather);
+
+        })();
+    </script>
+</body>
+</html>
