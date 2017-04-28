@@ -10,12 +10,12 @@
 
     <style>
         body {
-            background-color: #18d64f;
+            background-color: midnightblue;
+            background-image: url(img/SA2.jpg);
+            background-size: cover;
         }
 
-        #location {
 
-        }
 
         .weatherinfo {
             height: 310px;
@@ -28,9 +28,20 @@
 
         #weatherdiv {
             width: 80%;
-            height: 420px;
-            margin: 10%;
+            height: 350px;
+            margin-left:10%;
             background-color: #8E949A;
+
+        }
+        p{
+            font-size: 2vw;
+        }
+        #map-canvas {
+            width: 900px;
+            height: 481px;
+            border: blue solid;
+            margin-left:22%;
+            margin-top:00;
         }
 
     </style>
@@ -38,19 +49,12 @@
 
 </head>
 <body>
-<div id="weatherdiv">
-    <!--<div>-->
-        <!--<h1>Weather Application</h1>-->
-        <!--<h3 id="location">San Antonio, TX</h3>-->
-        <!--<div class="weatherinfo">-->
-        <!--</div>-->
-        <!--<div class="weatherinfo">-->
-        <!--</div>-->
-        <!--<div class="weatherinfo">-->
-        <!--</div>-->
+<div id="weatherdiv"></div>
 
-    <!--</div>-->
-    </divid>
+<!--<br>-->
+<div id="map-canvas"></div>
+
+
 
     <!-- jQuery comes first and bootstrap JS after-->
 
@@ -71,13 +75,13 @@
     <!-- Remember we do not encourage you to write in line JS -->
     <script>
         (function () {
+            "use strict"
 
-
-            function getWeather() {
+            function getWeather(lat,lon) {
                 $.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
                     APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
-                    q: "San Antonio, TX",
-                    id: "4726206",
+                    lat: lat,
+                    lon: lon,
                     cnt: 3,
                     units: "imperial"
                 }).done(function (data) {
@@ -89,47 +93,50 @@
             }
 
 
-            getWeather();
+            getWeather(29.4241,-98.4936);
 
 
             function createHtml(data){
                 var content = '<h2>' + data.city.name + '</h2>'
                 for (var i = 0; i < data.list.length; i++) {
                     content += '<div class="col-xs-4 weatherinfo text-center">';
-                    content += '<p>Temperature:' + data.list[i].temp.min + "/" + data.list[i].temp.max + "</p>";
+                    content += '<p>Temperature: ' + data.list[i].temp.min + "/" + data.list[i].temp.max + "</p>";
                     content += '<p><img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png"></p>';
                     content += '<p>Humidity: ' + data.list[i].humidity + "</p>";
-                    content += '<p>Pressure: '+ data.list[i].pressure + "</p></div>";
+                    content += '<p>Rain: '+ data.list[i].rain + "</p></div>";
                 }
                     $('#weatherdiv').html(content);
 
 
             }
 
+            function initMap() {
+
+
+              var myLatLng = {lat: 29.4241, lng: -98.4936};
+
+                var map = new google.maps.Map(document.getElementById("map-canvas"), {
+                    zoom: 4,
+                    center: myLatLng
+                });
+
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    draggable: true,
+                    title: 'Hello World!'
+                });
+                marker.addListener('dragend', function(e) {
+                    console.log(this.position.lat());
+                    getWeather(this.position.lat(), this.position.lng())
+//
+                });
+            }
+            initMap();
 
 
 
 
-
-
-
-
-
-
-
-
-//            var iconCode = data.list[i].weather[0].icon;
-//            var iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-//            content = '';
-//            location = '';
-//            location += data.city.name;
-//            content += "<strong>" +data.list[i].temp.max + "/" + data.list[i].temp.min + "</strong><br><br>";
-//            content += "<span class='icon'></span><br><br>";
-//            content += "<strong>Humidity:</strong> " + data.list[i].humidity + "<br><br>";
-//            content += "<strong>Wind:</strong> " + data.list[i].speed + "<br><br>";
-//            content += "<strong>Pressure:</strong> " + data.list[i].pressure;
-//            $("#info-" + i).html(content);
-//            $(".icon").html("<img src='" + iconUrl + "'>");
 
 
         })();
