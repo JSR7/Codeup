@@ -19,11 +19,9 @@
 
         .weatherinfo {
             height: 310px;
-            /*width: 32%;*/
             background-color: white;
             border: 2px solid black;
-            /*display: inline-block;*/
-            /*margin-left: .5%;*/
+
         }
 
         #weatherdiv {
@@ -116,8 +114,9 @@
               var myLatLng = {lat: 29.4241, lng: -98.4936};
 
                 var map = new google.maps.Map(document.getElementById("map-canvas"), {
-                    zoom: 4,
-                    center: myLatLng
+                    zoom: 7,
+                    center: myLatLng,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
                 });
 
                 var marker = new google.maps.Marker({
