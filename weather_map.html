@@ -18,29 +18,93 @@
 
 
         .weatherinfo {
-            height: 310px;
+            height: 330px;
             background-color: white;
-            border: 2px solid black;
+            border: 2px solid blue;
 
         }
 
         #weatherdiv {
-            width: 80%;
-            height: 350px;
-            margin-left:10%;
+            width: 70%;
+            height: 373px;
+            margin-left:15%;
             background-color: #8E949A;
-
         }
+
+        #weatherdivheader:hover {
+            color: whitesmoke;
+            transition: all 1s;
+        }
+
+
         p{
             font-size: 2vw;
         }
         #map-canvas {
-            width: 900px;
-            height: 481px;
-            border: blue solid;
-            margin-left:22%;
+            width: 60%;
+            height: 450px;
+            border: 3px solid blue;
+            margin-left:20%;
             margin-top:00;
         }
+
+        .icon {
+            text-align: center;
+            margin-left: 100px;
+            margin-right: 100px;
+            display: block;
+            -webkit-transition: all 1s;
+            transition: all 1s;
+            height: 90px;
+            width: 90px;
+
+        }
+
+        .icon:hover {
+            -webkit-transform: rotate(360deg);
+            transition: rotate(360deg);
+            animation: spin 12s infinite ;
+
+        }
+        #humidity {
+            transition: 1s;
+        }
+        #humidity:hover {
+            color: red;
+            transition: 1s ease all;
+
+        }
+        #wind{
+            transition:1s;
+        }
+
+        #rain{
+            transition:1s;
+        }
+
+
+        #wind:hover {
+            color: limegreen;
+            transition:1s all ease;
+            /*animation-name: wobble;*/
+        }
+
+        #rain:hover{
+            color: blue;
+            transition:1s all ease;
+            animation: 12s ;
+        }
+
+        @keyframes wobble {
+            0% {transform: translateX(0%);}
+            15% {transform: translateX(-25%) rotate(-5deg);}
+            30% {transform: translateX(20%) rotate(3deg);}
+            45% {transform: translateX(-15%) rotate(-3deg);}
+            60% {transform: translateX(10%) rotate(2deg);}
+            75% {transform: translateX(-5%) rotate(-1deg);}
+            100% {transform: translateX(0%);}
+        }
+
 
     </style>
     <!--<link rel="stylesheet" href="css/styles.css">-->
@@ -95,13 +159,17 @@
 
 
             function createHtml(data){
-                var content = '<h2>' + data.city.name + '</h2>'
+                var content = '<h2 id="weatherdivheader">  ' + data.city.name + '</h2>';
+
+
                 for (var i = 0; i < data.list.length; i++) {
+                    var rain = (data.list[i].rain) ? data.list[i].rain : "0";
                     content += '<div class="col-xs-4 weatherinfo text-center">';
-                    content += '<p>Temperature: ' + data.list[i].temp.min + "/" + data.list[i].temp.max + "</p>";
-                    content += '<p><img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png"></p>';
-                    content += '<p>Humidity: ' + data.list[i].humidity + "</p>";
-                    content += '<p>Rain: '+ data.list[i].rain + "</p></div>";
+                    content += '<h2>Temperature: ' + Math.round(data.list[i].temp.min)+ "°" + "/" + "°" + Math.round(data.list[i].temp.max) + "</h2>";
+                    content += '<p><img class="icon" src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png"></p>';
+                    content += '<h2 id="humidity">Humidity: ' + data.list[i].humidity + "% </h2>";
+                    content += '<h2 id="rain" >Rain: '+ rain + "% </h2>";
+                    content += '<h2 id="wind">Wind Speed: ' + Math.round(data.list[i].speed) + ' MPH </h2></div>'
                 }
                     $('#weatherdiv').html(content);
 
@@ -114,7 +182,7 @@
               var myLatLng = {lat: 29.4241, lng: -98.4936};
 
                 var map = new google.maps.Map(document.getElementById("map-canvas"), {
-                    zoom: 7,
+                    zoom: 8,
                     center: myLatLng,
                     mapTypeId: google.maps.MapTypeId.HYBRID
                 });
@@ -128,10 +196,15 @@
                 marker.addListener('dragend', function(e) {
                     console.log(this.position.lat());
                     getWeather(this.position.lat(), this.position.lng())
-//
+
+                    if(marker.position.lat() !==  29.4241 || marker.position.lng() !== -98.4936){
+                        $("body").css("background-image", "url(img/gencity.jpg)");
+                    };
+
                 });
             }
             initMap();
+
 
 
 
